@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Sai Villas – Premium Villas | Hyderabad Outskirts</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C; --gold-light: #E8C97A;
+  --dark: #0D1117; --dark2: #151C26; --dark3: #1E2A38;
+  --white: #FFFFFF; --off-white: #F5F0E8;
+  --muted: #8A9BB0; --green: #27AE60; --red: #E74C3C;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--dark); color:var(--white); overflow-x:hidden; }
+
+/* HEADER */
+header {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(13,17,23,0.95); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+  padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+}
+.logo { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); }
+.logo span { display:block; font-family:'DM Sans',sans-serif; font-size:12px; color:var(--muted); letter-spacing:2px; font-weight:300; }
+.hcta {
+  background:var(--gold); color:var(--dark); border:none;
+  padding:10px 22px; border-radius:4px; font-weight:600; font-size:14px;
+  cursor:pointer; text-decoration:none; transition:0.2s;
+}
+.hcta:hover { background:var(--gold-light); }
+
+/* HERO */
+.hero {
+  min-height:100vh;
+  background:linear-gradient(135deg,#0D1117 0%,#1a2535 50%,#0D1117 100%);
+  display:flex; align-items:center; padding:100px 24px 60px;
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 70% 50%,rgba(201,168,76,0.08) 0%,transparent 60%);
+}
+.hero-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+}
+.badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.3);
+  padding:6px 16px; border-radius:20px; margin-bottom:24px;
+  font-size:13px; color:var(--gold); letter-spacing:1px;
+}
+h1 { font-family:'Playfair Display',serif; font-size:clamp(34px,5vw,56px); line-height:1.1; margin-bottom:12px; }
+h1 span { color:var(--gold); }
+.telugu { font-size:18px; color:var(--muted); margin-bottom:18px; font-weight:300; }
+.desc { font-size:16px; line-height:1.7; color:var(--muted); margin-bottom:28px; }
+.stats { display:flex; gap:32px; margin-bottom:32px; }
+.stat-num { font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); }
+.stat-lbl { font-size:12px; color:var(--muted); }
+.btns { display:flex; gap:14px; flex-wrap:wrap; }
+.btn-g {
+  background:var(--gold); color:var(--dark); border:none;
+  padding:16px 32px; border-radius:4px; font-weight:700; font-size:15px;
+  cursor:pointer; text-decoration:none; transition:0.2s; display:inline-block;
+}
+.btn-g:hover { background:var(--gold-light); transform:translateY(-2px); }
+.btn-w {
+  background:transparent; color:var(--white);
+  border:1px solid rgba(255,255,255,0.3); padding:16px 32px;
+  border-radius:4px; font-weight:500; font-size:15px;
+  cursor:pointer; text-decoration:none; display:inline-block; transition:0.2s;
+}
+.btn-w:hover { border-color:var(--gold); color:var(--gold); }
+
+/* FORM CARD */
+.form-card {
+  background:var(--dark2); border:1px solid rgba(201,168,76,0.2);
+  border-radius:12px; padding:36px; position:relative;
+}
+.form-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  border-radius:12px 12px 0 0;
+}
+.form-ttl { font-family:'Playfair Display',serif; font-size:22px; margin-bottom:6px; }
+.form-sub { font-size:13px; color:var(--muted); margin-bottom:20px; }
+.fg { margin-bottom:14px; }
+.fg label { display:block; font-size:13px; color:var(--muted); margin-bottom:5px; }
+.fg input, .fg select {
+  width:100%; background:var(--dark3);
+  border:1px solid rgba(255,255,255,0.1); color:var(--white);
+  padding:12px 16px; border-radius:6px; font-family:'DM Sans',sans-serif;
+  font-size:14px; outline:none; transition:0.2s;
+}
+.fg input:focus, .fg select:focus { border-color:var(--gold); }
+.fg select option { background:var(--dark3); }
+.fsub {
+  width:100%; background:var(--gold); color:var(--dark);
+  border:none; padding:16px; border-radius:6px;
+  font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px;
+  cursor:pointer; margin-top:6px; transition:0.2s;
+}
+.fsub:hover { background:var(--gold-light); }
+.fsub:disabled { background:#666; cursor:not-allowed; }
+.fnote { font-size:11px; color:var(--muted); text-align:center; margin-top:8px; }
+.spinner {
+  display:none; width:22px; height:22px;
+  border:3px solid rgba(255,255,255,0.1); border-top:3px solid var(--gold);
+  border-radius:50%; animation:spin 1s linear infinite; margin:0 auto 10px;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.errmsg {
+  display:none; background:rgba(231,76,60,0.1); border:1px solid var(--red);
+  border-radius:6px; padding:10px 14px; font-size:13px; color:var(--red); margin-bottom:12px;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background:var(--dark2);
+  border-top:1px solid rgba(201,168,76,0.1); border-bottom:1px solid rgba(201,168,76,0.1);
+  padding:18px 24px;
+}
+.trust-inner {
+  max-width:1200px; margin:0 auto;
+  display:flex; justify-content:center; gap:36px; flex-wrap:wrap;
+}
+.ti { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); }
+.ti span { color:var(--gold); font-size:18px; }
+
+/* SECTIONS */
+section { padding:80px 24px; }
+.si { max-width:1200px; margin:0 auto; }
+.stag { font-size:12px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:10px; }
+.stitle { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); margin-bottom:14px; }
+.stitle span { color:var(--gold); }
+.sdesc { font-size:16px; color:var(--muted); max-width:600px; line-height:1.7; }
+
+/* PAIN CARDS */
+.pgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:44px; }
+.pcard {
+  background:var(--dark2); border:1px solid rgba(255,255,255,0.06);
+  border-radius:10px; padding:26px; transition:0.2s;
+}
+.pcard:hover { border-color:rgba(201,168,76,0.3); }
+.picon { font-size:30px; margin-bottom:12px; }
+.ptitle { font-size:15px; font-weight:600; margin-bottom:7px; }
+.pdesc { font-size:14px; color:var(--muted); line-height:1.6; }
+.psol { margin-top:10px; padding-top:10px; border-top:1px solid rgba(201,168,76,0.15); font-size:13px; color:var(--gold); }
+
+/* FEATURES */
+.fgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px; margin-top:44px; }
+.fcard { background:var(--dark2); border:1px solid rgba(201,168,76,0.1); border-radius:10px; padding:22px; text-align:center; }
+.fnum { font-family:'Playfair Display',serif; font-size:34px; color:var(--gold); margin-bottom:6px; }
+.flbl { font-size:14px; color:var(--muted); }
+
+/* TESTIMONIALS */
+.tgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:22px; margin-top:44px; }
+.tcard { background:var(--dark2); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:26px; }
+.stars { color:var(--gold); font-size:17px; margin-bottom:12px; }
+.ttext { font-size:15px; color:var(--off-white); line-height:1.7; margin-bottom:18px; font-style:italic; }
+.tauthor { display:flex; align-items:center; gap:12px; }
+.avatar {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; color:var(--dark); font-size:15px;
+}
+.aname { font-weight:600; font-size:14px; }
+.arole { font-size:12px; color:var(--muted); }
+
+/* APPROVALS */
+.agrid { display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
+.abadge {
+  background:rgba(39,174,96,0.1); border:1px solid rgba(39,174,96,0.3);
+  padding:11px 18px; border-radius:6px; display:flex; align-items:center;
+  gap:9px; font-size:14px;
+}
+.ack { color:var(--green); font-size:17px; }
+
+/* FAQ */
+.faq { margin-top:36px; }
+.fqi { border-bottom:1px solid rgba(255,255,255,0.06); padding:18px 0; cursor:pointer; }
+.fqq { font-size:15px; font-weight:500; display:flex; justify-content:space-between; align-items:center; }
+.fqq em { color:var(--gold); font-size:20px; font-style:normal; transition:0.2s; }
+.fqa { font-size:14px; color:var(--muted); line-height:1.7; margin-top:10px; display:none; }
+.fqi.open .fqa { display:block; }
+.fqi.open .fqq em { transform:rotate(45deg); }
+
+/* FINAL CTA */
+.fcta {
+  background:linear-gradient(135deg,var(--dark2),var(--dark3));
+  border:1px solid rgba(201,168,76,0.2); border-radius:14px;
+  padding:56px 36px; text-align:center; margin-top:44px;
+}
+.fcta h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); margin-bottom:14px; }
+.fcta h2 span { color:var(--gold); }
+.fcta p { font-size:16px; color:var(--muted); margin-bottom:28px; }
+
+/* WHATSAPP */
+.wa {
+  position:fixed; bottom:24px; right:24px; z-index:999;
+  background:#25D366; color:white; width:56px; height:56px;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:26px; text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  animation:wap 2s infinite;
+}
+@keyframes wap {
+  0% { box-shadow:0 0 0 0 rgba(37,211,102,0.4); }
+  70% { box-shadow:0 0 0 12px rgba(37,211,102,0); }
+  100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* FOOTER */
+footer { background:var(--dark2); border-top:1px solid rgba(255,255,255,0.06); padding:36px 24px; text-align:center; }
+.flogo { font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); margin-bottom:10px; }
+.flinks { display:flex; justify-content:center; gap:22px; flex-wrap:wrap; margin-bottom:16px; }
+.flinks a { font-size:14px; color:var(--muted); text-decoration:none; }
+.flinks a:hover { color:var(--gold); }
+.fcopy { font-size:12px; color:var(--muted); }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .hero-grid { grid-template-columns:1fr; gap:36px; }
+  .stats { gap:18px; }
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+.hero-content { animation:fadeUp 0.8s ease both; }
+.form-card { animation:fadeUp 0.8s ease 0.2s both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Sri Sai Villas <span>PREMIUM VILLAS • HYDERABAD OUTSKIRTS</span></div>
+  <a href="#form" class="hcta">📅 Book Site Visit</a>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="badge">✓ RERA Approved • DTCP Certified</div>
+      <h1>Your Dream Villa<br>in <span>Hyderabad</span><br>Awaits You</h1>
+      <p class="telugu">మీ కలల విల్లా — హైదరాబాద్ శివారు ప్రాంతంలో</p>
+      <p class="desc">Premium Villas starting ₹60L in Hyderabad Outskirts. 100% legal, RERA approved, near major IT corridors with 3X appreciation potential.</p>
+      <div class="stats">
+        <div><div class="stat-num">500+</div><div class="stat-lbl">Happy Families</div></div>
+        <div><div class="stat-num">12+</div><div class="stat-lbl">Years Trust</div></div>
+        <div><div class="stat-num">3X</div><div class="stat-lbl">Appreciation</div></div>
+      </div>
+      <div class="btns">
+        <a href="#form" class="btn-g">📅 Book Free Site Visit</a>
+        <a href="tel:+918790282479" class="btn-w">📞 Call Now</a>
+      </div>
+    </div>
+
+    <div class="form-card" id="form">
+      <div class="form-ttl">Book Free Site Visit</div>
+      <div class="form-sub">మీ వివరాలు నమోదు చేయండి — 30 నిమిషాల్లో call చేస్తాం</div>
+      <div class="errmsg" id="err"></div>
+      <div class="spinner" id="spin"></div>
+      <form id="leadForm">
+        <div class="fg">
+          <label>మీ పేరు / Full Name *</label>
+          <input type="text" id="fname" placeholder="Enter your full name" required>
+        </div>
+        <div class="fg">
+          <label>మొబైల్ నంబర్ / Mobile *</label>
+          <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="fg">
+          <label>Email Address</label>
+          <input type="email" id="femail" placeholder="your@email.com">
+        </div>
+        <div class="fg">
+          <label>Budget Range</label>
+          <select id="fbudget">
+            <option value="">Select budget</option>
+            <option value="60L-75L">₹60L – ₹75L</option>
+            <option value="75L-1Cr">₹75L – ₹1 Crore</option>
+            <option value="1Cr+">₹1 Crore+</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Preferred Site Visit Date</label>
+          <input type="date" id="fdate">
+        </div>
+        <button type="submit" class="fsub" id="fsubBtn">📅 Book My Free Site Visit →</button>
+        <p class="fnote">🔒 మీ వివరాలు 100% safe. No spam calls.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="ti"><span>✅</span> RERA Approved</div>
+    <div class="ti"><span>✅</span> DTCP Certified</div>
+    <div class="ti"><span>✅</span> Clear Title Deeds</div>
+    <div class="ti"><span>✅</span> Bank Loan Available</div>
+    <div class="ti"><span>✅</span> No Hidden Charges</div>
+  </div>
+</div>
+
+<section style="background:var(--dark)">
+  <div class="si">
+    <div class="stag">మీ సమస్యలు మాకు తెలుసు</div>
+    <h2 class="stitle">We Solve Your <span>Biggest Fears</span></h2>
+    <div class="pgrid">
+      <div class="pcard"><div class="picon">🏛️</div><div class="ptitle">Fear of Legal Issues?</div><div class="pdesc">"What if documents are fake?" అని భయంగా ఉందా?</div><div class="psol">✓ 100% RERA verified. All documents transparent online.</div></div>
+      <div class="pcard"><div class="picon">📍</div><div class="ptitle">Wrong Location Fear?</div><div class="pdesc">"What if prices don't increase?" Valid concern.</div><div class="psol">✓ Near IT Corridor & Pharma City. 3X appreciation proven.</div></div>
+      <div class="pcard"><div class="picon">🤝</div><div class="ptitle">Can't Trust Developers?</div><div class="pdesc">"Everyone says theirs is best." We understand.</div><div class="psol">✓ 12+ years. 500+ families. Real testimonials.</div></div>
+      <div class="pcard"><div class="picon">💰</div><div class="ptitle">Limited Capital?</div><div class="pdesc">"Don't want all savings in one place."</div><div class="psol">✓ EMI options. Bank loans. Flexible payment plans.</div></div>
+      <div class="pcard"><div class="picon">😵</div><div class="ptitle">Information Overload?</div><div class="pdesc">"Too many projects. Too much advice."</div><div class="psol">✓ Dedicated relationship manager. Clear guidance.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--dark2)">
+  <div class="si">
+    <div class="stag">Project Highlights</div>
+    <h2 class="stitle">Why Choose <span>Sri Sai Villas</span></h2>
+    <div class="fgrid">
+      <div class="fcard"><div class="fnum">₹60L</div><div class="flbl">Starting Price</div></div>
+      <div class="fcard"><div class="fnum">500+</div><div class="flbl">Villas Sold</div></div>
+      <div class="fcard"><div class="fnum">3X</div><div class="flbl">ROI in 5 Years</div></div>
+      <div class="fcard"><div class="fnum">12+</div><div class="flbl">Years Experience</div></div>
+      <div class="fcard"><div class="fnum">100%</div><div class="flbl">Legal Clear</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--dark)">
+  <div class="si">
+    <div class="stag">Customer Stories</div>
+    <h2 class="stitle">Real People. <span>Real Results.</span></h2>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars">★★★★★</div><p class="ttext">"I was scared of fraud. Sri Sai Villas showed every document clearly. My villa value doubled in 3 years!"</p><div class="tauthor"><div class="avatar">RK</div><div><div class="aname">Rajesh Kumar</div><div class="arole">Software Engineer, Hitech City</div></div></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="ttext">"NRI గా చాలా careful గా invest చేశాను. 4 years లో ₹40L profit వచ్చింది! Team చాలా transparent."</p><div class="tauthor"><div class="avatar">SP</div><div><div class="aname">Suresh Prasad</div><div class="arole">NRI Investor, USA</div></div></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="ttext">"Doctor గా time లేదు. Relationship manager అన్నీ handle చేశారు. Complete peace of mind!"</p><div class="tauthor"><div class="avatar">PM</div><div><div class="aname">Dr. Priya Mahesh</div><div class="arole">Doctor, Secunderabad</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--dark2)">
+  <div class="si">
+    <div class="stag">Legal Approvals</div>
+    <h2 class="stitle">100% <span>Verified & Approved</span></h2>
+    <div class="agrid">
+      <div class="abadge"><span class="ack">✓</span> RERA Registered</div>
+      <div class="abadge"><span class="ack">✓</span> DTCP Approved</div>
+      <div class="abadge"><span class="ack">✓</span> Clear Title Deed</div>
+      <div class="abadge"><span class="ack">✓</span> Bank Loan Approved</div>
+      <div class="abadge"><span class="ack">✓</span> No Encumbrance</div>
+      <div class="abadge"><span class="ack">✓</span> HMDA Approved</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--dark)">
+  <div class="si">
+    <div class="stag">FAQ</div>
+    <h2 class="stitle">మీ Questions కి <span>Answers</span></h2>
+    <div class="faq">
+      <div class="fqi"><div class="fqq">What is the starting price? <em>+</em></div><div class="fqa">Villas start from ₹60 Lakhs. Flexible payment plans & bank loan available. EMI from ₹45,000/month.</div></div>
+      <div class="fqi"><div class="fqq">Is the project RERA approved? <em>+</em></div><div class="fqa">Yes! 100% RERA registered & DTCP approved. Verify on official RERA Telangana website.</div></div>
+      <div class="fqi"><div class="fqq">What is the appreciation potential? <em>+</em></div><div class="fqa">Previous projects showed 3X appreciation in 5 years near IT corridors & Pharma City.</div></div>
+      <div class="fqi"><div class="fqq">Can NRIs invest? <em>+</em></div><div class="fqa">Absolutely! Dedicated NRI team. We handle all documentation & registration. Free power of attorney support.</div></div>
+      <div class="fqi"><div class="fqq">How to book a site visit? <em>+</em></div><div class="fqa">Fill form above or call +91 8790282479. Free pickup & drop from Hyderabad city provided.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--dark2); padding:80px 24px">
+  <div class="si">
+    <div class="fcta">
+      <h2>మీ Dream Villa <span>Book చేయండి!</span></h2>
+      <p>Limited units available. Prices increasing every quarter. Don't wait!</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="#form" class="btn-g" style="font-size:16px;padding:18px 40px">📅 Book Free Site Visit</a>
+        <a href="tel:+918790282479" class="btn-w" style="font-size:16px;padding:18px 40px">📞 +91 8790282479</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Sri Sai Villas</div>
+  <div class="flinks">
+    <a href="#home">Home</a>
+    <a href="#form">Book Visit</a>
+    <a href="tel:+918790282479">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p class="fcopy">© 2026 Sri Sai Villas. All rights reserved. | rajesh.sdmlabs.in</p>
+</footer>
+
+<a href="https://wa.me/918790282479?text=Hi, I'm interested in Sri Sai Villas!" class="wa" target="_blank">💬</a>
+
+<script>
+// ⚠️ REPLACE THIS URL after deploying Google Apps Script
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzkhVZOOliel2RNUTcYys7VHYZr5D-_of6FVPJOZPbaL2TrEP0IIyD3vQfVBXK25_IW/exec";
+
+// FAQ
+document.querySelectorAll('.fqi').forEach(i => i.addEventListener('click', () => i.classList.toggle('open')));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
+  });
+});
+
+// FORM SUBMIT
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const name   = document.getElementById('fname').value.trim();
+  const phone  = document.getElementById('fphone').value.trim();
+  const email  = document.getElementById('femail').value.trim();
+  const budget = document.getElementById('fbudget').value;
+  const date   = document.getElementById('fdate').value;
+
+  if (!name || !phone) {
+    document.getElementById('err').textContent = '❌ Name and Phone are required!';
+    document.getElementById('err').style.display = 'block';
+    return;
+  }
+
+  // Show loading
+  document.getElementById('err').style.display = 'none';
+  document.getElementById('spin').style.display = 'block';
+  document.getElementById('fsubBtn').disabled = true;
+  document.getElementById('fsubBtn').textContent = 'Submitting...';
+
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('phone', phone);
+  formData.append('email', email);
+  formData.append('budget', budget);
+  formData.append('date', date);
+
+  try {
+    await fetch(SCRIPT_URL, { method:'POST', body: formData, mode:'no-cors' });
+    // Redirect to thank you page
+    window.location.href = 'thank-you.html';
+  } catch (error) {
+    document.getElementById('spin').style.display = 'none';
+    document.getElementById('fsubBtn').disabled = false;
+    document.getElementById('fsubBtn').textContent = '📅 Book My Free Site Visit →';
+    document.getElementById('err').textContent = '❌ Submission failed. Please try again or call us directly.';
+    document.getElementById('err').style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>
