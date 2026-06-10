@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rajesh SDM Labs — Google, Meta & LinkedIn Ads | India</title>
+<meta name="description" content="Generate more leads and sales with performance-driven Google Ads, Meta Ads & LinkedIn Ads. Rajesh SDM Labs helps Indian businesses grow with paid advertising that converts." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand: #1A56DB;
+    --brand-dark: #1043B8;
+    --brand-light: #EBF2FF;
+    --accent: #FF6B2C;
+    --accent-light: #FFF0E8;
+    --dark: #0D1117;
+    --dark2: #161B26;
+    --gray: #6B7280;
+    --gray-light: #F3F4F6;
+    --border: #E5E7EB;
+    --white: #FFFFFF;
+    --text: #111827;
+    --text2: #374151;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --font: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--text); background: var(--white); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-mark {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: var(--brand); color: white;
+    font-weight: 800; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    letter-spacing: -0.5px;
+  }
+  .logo-text { font-weight: 700; font-size: 17px; color: var(--text); }
+  .logo-text span { color: var(--brand); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--text2); transition: color .2s; }
+  .nav-links a:hover { color: var(--brand); }
+  .nav-cta {
+    background: var(--brand); color: white;
+    border: none; border-radius: 8px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: background .2s;
+    font-family: var(--font);
+  }
+  .nav-cta:hover { background: var(--brand-dark); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0D1117 0%, #161B26 50%, #1A1F2E 100%);
+    padding: 96px 5% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,86,219,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 10%;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,44,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(26,86,219,0.15); border: 1px solid rgba(26,86,219,0.4);
+    color: #93B4F8; border-radius: 100px;
+    padding: 6px 14px; font-size: 13px; font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .hero-badge span { width: 6px; height: 6px; background: #60A5FA; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 58px); font-weight: 800;
+    color: white; line-height: 1.12; letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: normal; color: #60A5FA; }
+  .hero h1 .accent { font-style: normal; color: var(--accent); }
+  .hero-sub { font-size: 18px; color: #9CA3AF; line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--brand); color: white;
+    border: none; border-radius: 10px;
+    padding: 15px 28px; font-size: 16px; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background .2s, transform .15s;
+    font-family: var(--font);
+  }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.2); color: white;
+    background: transparent; border-radius: 10px;
+    padding: 14px 24px; font-size: 15px; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: border-color .2s, background .2s;
+    font-family: var(--font);
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); }
+  .hero-stats { display: flex; gap: 32px; margin-top: 48px; }
+  .hstat { }
+  .hstat-num { font-size: 28px; font-weight: 800; color: white; letter-spacing: -1px; }
+  .hstat-num span { color: #60A5FA; }
+  .hstat-label { font-size: 12px; color: #6B7280; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  /* Hero Form Card */
+  .hero-form-card {
+    background: white; border-radius: var(--radius-lg);
+    padding: 32px 28px; position: relative; z-index: 1;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  }
+  .form-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .form-sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 6px; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    font-size: 14px; color: var(--text); font-family: var(--font);
+    background: var(--white); transition: border-color .2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--brand); }
+  .form-submit {
+    width: 100%; background: var(--accent); color: white;
+    border: none; border-radius: 10px;
+    padding: 14px; font-size: 16px; font-weight: 700;
+    cursor: pointer; margin-top: 8px; font-family: var(--font);
+    transition: background .2s, transform .15s;
+  }
+  .form-submit:hover { background: #e55b1e; transform: translateY(-1px); }
+  .form-note { text-align: center; font-size: 12px; color: var(--gray); margin-top: 12px; }
+
+  /* SECTION SCAFFOLDING */
+  section { padding: 88px 5%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    background: var(--brand-light); color: var(--brand);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--gray); max-width: 560px; line-height: 1.7; }
+  .section-header { margin-bottom: 56px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-sub { margin: 0 auto; }
+
+  /* LOGOS */
+  .logos-section { padding: 40px 5%; background: var(--gray-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .logos-label { text-align: center; font-size: 13px; color: var(--gray); font-weight: 500; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .logos-row { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+  .platform-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 16px; font-weight: 700; color: #374151;
+    opacity: 0.65;
+  }
+  .platform-logo svg { width: 28px; height: 28px; }
+  .platform-logo:hover { opacity: 1; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg); padding: 32px 28px;
+    transition: border-color .2s, box-shadow .2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover { border-color: var(--brand); box-shadow: 0 8px 30px rgba(26,86,219,0.1); }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--card-accent, var(--brand));
+  }
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 24px;
+  }
+  .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .service-card p { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
+  .service-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .service-features li { font-size: 14px; color: var(--text2); display: flex; align-items: center; gap: 8px; }
+  .service-features li::before { content: '✓'; color: var(--brand); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+
+  /* WHY US */
+  .whyus { background: var(--dark); }
+  .whyus .section-title { color: white; }
+  .whyus .section-sub { color: #9CA3AF; }
+  .whyus .section-tag { background: rgba(26,86,219,0.2); color: #93B4F8; }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .why-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg); padding: 28px 24px;
+  }
+  .why-num { font-size: 36px; font-weight: 800; color: var(--brand); letter-spacing: -1px; line-height: 1; margin-bottom: 12px; }
+  .why-card h4 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 8px; }
+  .why-card p { font-size: 14px; color: #9CA3AF; line-height: 1.65; }
+
+  /* PROCESS */
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+  .process-steps::before {
+    content: ''; position: absolute;
+    top: 28px; left: calc(12.5% + 24px); right: calc(12.5% + 24px);
+    height: 2px; background: var(--border); z-index: 0;
+  }
+  .pstep { padding: 0 16px; text-align: center; position: relative; z-index: 1; }
+  .pstep-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--brand); color: white;
+    font-size: 18px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    border: 4px solid white; box-shadow: 0 0 0 2px var(--brand);
+  }
+  .pstep h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .pstep p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+  /* INDUSTRIES */
+  .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .industry-card {
+    background: var(--gray-light); border-radius: var(--radius);
+    padding: 24px 20px; text-align: center;
+    transition: background .2s, transform .15s;
+    cursor: default;
+  }
+  .industry-card:hover { background: var(--brand-light); transform: translateY(-2px); }
+  .ind-icon { font-size: 32px; margin-bottom: 12px; }
+  .industry-card h4 { font-size: 15px; font-weight: 700; color: var(--text); }
+  .industry-card p { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+  /* RESULTS */
+  .results { background: var(--gray-light); }
+  .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .result-card {
+    background: white; border-radius: var(--radius-lg);
+    padding: 32px 28px; border: 1.5px solid var(--border);
+  }
+  .result-metric { font-size: 44px; font-weight: 800; color: var(--brand); letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
+  .result-metric span { color: var(--accent); }
+  .result-label { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .result-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .result-industry { display: inline-block; background: var(--brand-light); color: var(--brand); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 100px; margin-top: 16px; }
+
+  /* TESTIMONIALS */
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testi-card {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px 24px;
+  }
+  .stars { color: #FBBF24; font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+  .testi-text { font-size: 15px; color: var(--text2); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--brand); color: white; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .testi-name { font-size: 14px; font-weight: 700; }
+  .testi-co { font-size: 13px; color: var(--gray); }
+
+  /* AUDIT SECTION */
+  .audit-section {
+    background: linear-gradient(135deg, var(--brand) 0%, #1043B8 100%);
+    padding: 88px 5%;
+  }
+  .audit-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center; }
+  .audit-section h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: white; line-height: 1.2; margin-bottom: 16px; }
+  .audit-section p { font-size: 17px; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 28px; }
+  .audit-checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .audit-checklist li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); font-size: 15px; }
+  .audit-checklist li::before { content: '✓'; background: rgba(255,255,255,0.2); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .audit-form-card {
+    background: white; border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    font-size: 16px; font-weight: 600; color: var(--text);
+    padding: 22px 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; font-family: var(--font);
+  }
+  .faq-q .icon { font-size: 20px; color: var(--brand); flex-shrink: 0; transition: transform .2s; }
+  .faq-a { font-size: 15px; color: var(--gray); line-height: 1.75; padding-bottom: 20px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); padding: 64px 5% 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand { }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .footer-logo .logo-mark { background: var(--brand); }
+  .footer-logo .logo-text { color: white; }
+  .footer-desc { font-size: 14px; color: #6B7280; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 14px; color: #6B7280; text-decoration: none; transition: color .2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-contact p { font-size: 14px; color: #6B7280; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .footer-contact a { color: #93B4F8; text-decoration: none; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-copy { font-size: 13px; color: #4B5563; }
+  .footer-legal { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; margin-top: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .footer-legal a { font-size: 13px; color: #4B5563; text-decoration: none; transition: color .2s; }
+  .footer-legal a:hover { color: #9CA3AF; }
+  .footer-legal span { font-size: 13px; color: #4B5563; }
+  .footer-dot { color: #374151; }
+  .footer-badges { display: flex; gap: 12px; }
+  .fbadge {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: #9CA3AF; font-size: 12px; padding: 6px 12px; border-radius: 6px;
+  }
+
+  /* WHATSAPP FAB */
+  .wa-fab {
+    position: fixed; bottom: 28px; right: 28px;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; color: white;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 28px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    z-index: 999; transition: transform .2s;
+  }
+  .wa-fab:hover { transform: scale(1.1); }
+
+  /* SUCCESS MESSAGE */
+  .success-msg { display: none; text-align: center; padding: 16px 0; }
+  .success-msg .check { font-size: 40px; margin-bottom: 8px; }
+  .success-msg h3 { font-size: 18px; font-weight: 700; color: #16A34A; margin-bottom: 4px; }
+  .success-msg p { font-size: 14px; color: var(--gray); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-form-card { max-width: 480px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .process-steps::before { display: none; }
+    .industry-grid { grid-template-columns: repeat(2, 1fr); }
+    .results-grid, .testi-grid { grid-template-columns: 1fr; }
+    .audit-inner { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 540px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .industry-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 16px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .hero-actions a { width: 100%; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-mark">RS</div>
+    <span class="logo-text">Rajesh <span>SDM Labs</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#audit" class="nav-cta">Get Free Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span></span> Trusted by 120+ Indian Businesses</div>
+      <h1>Turn Ad Spend into <em>Real Revenue</em> with <span class="accent">Performance Ads</span></h1>
+      <p class="hero-sub">We run high-converting Google Ads, Meta Ads &amp; LinkedIn Ads campaigns for Indian businesses — engineered to generate qualified leads and predictable sales growth.</p>
+      <div class="hero-actions">
+        <a href="#audit" class="btn-primary">Get Free Ads Audit →</a>
+        <a href="#results" class="btn-outline">View Case Studies</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num">₹50<span>Cr+</span></div>
+          <div class="hstat-label">Ad Spend Managed</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">4.8<span>x</span></div>
+          <div class="hstat-label">Average ROAS</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">120<span>+</span></div>
+          <div class="hstat-label">Happy Clients</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-form-card">
+      <div class="form-title">🎯 Get Your Free Ads Audit</div>
+      <p class="form-sub">We'll analyse your current campaigns and show you exactly where you're losing money.</p>
+      <div id="hero-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="hf-name" placeholder="Rajesh Kumar" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="hf-phone" placeholder="+91 87902 82479" />
+        </div>
+        <div class="form-group">
+          <label>Business Type</label>
+          <select id="hf-type">
+            <option value="">Select your industry</option>
+            <option>Real Estate</option>
+            <option>Education / EdTech</option>
+            <option>eCommerce / D2C</option>
+            <option>Healthcare / Clinic</option>
+            <option>B2B / SaaS</option>
+            <option>Finance / BFSI</option>
+            <option>Travel & Hospitality</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Monthly Ad Budget</label>
+          <select id="hf-budget">
+            <option value="">Select budget range</option>
+            <option>Under ₹25,000/month</option>
+            <option>₹25,000 – ₹75,000/month</option>
+            <option>₹75,000 – ₹2,00,000/month</option>
+            <option>₹2,00,000+ /month</option>
+          </select>
+        </div>
+        <button class="form-submit" onclick="submitHeroForm()">Claim My Free Audit 🚀</button>
+        <p class="form-note">🔒 No spam. No sales pitch. Just honest insights.</p>
+      </div>
+      <div class="success-msg" id="hero-success">
+        <div class="check">🎉</div>
+        <h3>Request Received!</h3>
+        <p>We'll call you within 24 hours for your free audit session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM LOGOS -->
+<div class="logos-section">
+  <p class="logos-label">Certified Partners & Platforms We Master</p>
+  <div class="logos-row">
+    <div class="platform-logo">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z" fill="#4285F4"/>
+        <path d="M43.6 24.5c0-1.1-.1-2.1-.3-3H24v5.7h11c-.5 2.5-1.9 4.6-4 6v5h6.4c3.7-3.4 5.9-8.4 5.9-13.9" fill="#4285F4"/>
+        <path d="M24 44c5.4 0 9.9-1.8 13.2-4.8l-6.4-5c-1.8 1.2-4.1 1.9-6.8 1.9-5.2 0-9.6-3.5-11.2-8.3H1.2v5.2C4.5 39.1 13.6 44 24 44z" fill="#34A853"/>
+        <path d="M12.8 27.8c-.4-1.2-.6-2.5-.6-3.8s.2-2.6.6-3.8v-5.2H1.2C-.4 17.8-1 21 .8 24s2 6.2 1.2 8.8l11.8-5z" fill="#FBBC05"/>
+        <path d="M24 9.5c2.9 0 5.5 1 7.6 3l5.7-5.7C33.9 3.5 29.4 1.5 24 1.5 13.6 1.5 4.5 7.4 1.2 15.8l11.8 5C14.4 15.5 18.8 9.5 24 9.5z" fill="#EA4335"/>
+      </svg>
+      Google Ads
+    </div>
+    <div class="platform-logo">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="10" fill="#1877F2"/>
+        <path d="M32 24h-5v-3c0-1.4.7-2 2-2h3v-5h-4c-4 0-6 2.5-6 6v4h-4v5h4v13h5V29h4l1-5z" fill="white"/>
+      </svg>
+      Meta Ads
+    </div>
+    <div class="platform-logo">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="10" fill="#0A66C2"/>
+        <path d="M16 20h-5v16h5V20zM13.5 18a2.8 2.8 0 100-5.6 2.8 2.8 0 000 5.6zM37 26.5c0-4-2-7-6-7-2 0-3.8 1-4.8 2.5V20H21v16h5v-8.5c0-2 1.2-3.5 3-3.5s3 1.5 3 3.5V36h5V26.5z" fill="white"/>
+      </svg>
+      LinkedIn Ads
+    </div>
+    <div class="platform-logo">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="10" fill="#FF0000"/>
+        <path d="M38 17s-.4-2.6-1.6-3.7c-1.5-1.6-3.2-1.6-4-1.7C28 11.3 24 11.3 24 11.3s-4 0-8.4.3c-.8.1-2.5.1-4 1.7C10.4 14.4 10 17 10 17S9.6 20 9.6 23v2.8c0 3 .4 6 .4 6s.4 2.6 1.6 3.7c1.5 1.6 3.5 1.5 4.4 1.6C18.8 37.3 24 37.3 24 37.3s4 0 8.4-.4c.8-.1 2.5-.1 4-1.6 1.2-1.1 1.6-3.7 1.6-3.7s.4-3 .4-6V23c0-3-.4-6-.4-6zm-15 12.3V18.7l10.8 5.4-10.8 5.2z" fill="white"/>
+      </svg>
+      YouTube Ads
+    </div>
+    <div class="platform-logo">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="10" fill="#00C0EF"/>
+        <path d="M28.1 14.1L22 21.7l-4.3-4.3-8.4 10.1h26.5L28.1 14.1z" fill="white"/>
+        <rect x="10" y="30" width="28" height="3" rx="1.5" fill="white" opacity="0.7"/>
+      </svg>
+      Display Ads
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Our Services</div>
+      <h2 class="section-title">Performance Advertising That<br>Drives Real Business Growth</h2>
+      <p class="section-sub">Every rupee you spend should come back multiplied. We build, manage, and optimise campaigns that do exactly that.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" style="--card-accent: #4285F4;">
+        <div class="service-icon" style="background: #EBF2FF;">🔍</div>
+        <h3>Google Ads</h3>
+        <p>Capture high-intent buyers the moment they search for your product or service on Google. We run Search, Shopping, Performance Max & Display campaigns.</p>
+        <ul class="service-features">
+          <li>Search & Shopping Campaigns</li>
+          <li>Performance Max (PMax)</li>
+          <li>Remarketing & Display</li>
+          <li>Conversion tracking setup</li>
+          <li>Landing page CRO</li>
+        </ul>
+      </div>
+      <div class="service-card" style="--card-accent: #1877F2;">
+        <div class="service-icon" style="background: #EEF4FF;">📱</div>
+        <h3>Meta Ads</h3>
+        <p>Scale your brand on Facebook &amp; Instagram with thumb-stopping creatives and laser-focused audience targeting for leads, sales, and brand awareness.</p>
+        <ul class="service-features">
+          <li>Lead Generation campaigns</li>
+          <li>Catalog & Dynamic Ads</li>
+          <li>Lookalike audience targeting</li>
+          <li>Retargeting funnels</li>
+          <li>Creative strategy & testing</li>
+        </ul>
+      </div>
+      <div class="service-card" style="--card-accent: #0A66C2;">
+        <div class="service-icon" style="background: #E8F0F8;">💼</div>
+        <h3>LinkedIn Ads</h3>
+        <p>Reach decision-makers, CXOs, and professionals in India. Ideal for B2B, SaaS, education, and high-ticket services that need quality over quantity.</p>
+        <ul class="service-features">
+          <li>Sponsored Content & InMail</li>
+          <li>Lead Gen Forms (native)</li>
+          <li>Account-based targeting</li>
+          <li>Job title & industry filters</li>
+          <li>LinkedIn Insight Tag setup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus" id="whyus">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">We're Not an Agency.<br>We're Your Growth Partner.</h2>
+      <p class="section-sub">Most agencies focus on vanity metrics. We focus on one thing: your revenue. Here's what makes us different in the Indian market.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">4.8x</div>
+        <h4>Average ROAS</h4>
+        <p>Across all our active accounts, our clients see an average return of 4.8x on every rupee spent on ads.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">48hr</div>
+        <h4>Campaign Launch</h4>
+        <p>From onboarding to live campaigns in 48 hours. No endless back-and-forths or waiting weeks to get started.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">100%</div>
+        <h4>Transparent Reporting</h4>
+        <p>Real-time dashboards. Weekly reports. Monthly strategy calls. You always know exactly what's happening.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">India</div>
+        <h4>Local Market Experts</h4>
+        <p>We understand Indian consumer behaviour, regional languages, and platform trends specific to Tier 1, 2 &amp; 3 cities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">Our Process</div>
+      <h2 class="section-title">From Free Audit to Profitable Campaigns</h2>
+      <p class="section-sub">A clear, proven 4-step process that gets your ads generating leads within days — not months.</p>
+    </div>
+    <div class="process-steps">
+      <div class="pstep">
+        <div class="pstep-num">1</div>
+        <h4>Free Audit</h4>
+        <p>We audit your existing campaigns (or your competitors') and identify exactly where you're losing money and missing opportunities.</p>
+      </div>
+      <div class="pstep">
+        <div class="pstep-num">2</div>
+        <h4>Strategy & Setup</h4>
+        <p>We build a custom ad strategy, create audiences, write ad copies, design creatives, and set up precise conversion tracking.</p>
+      </div>
+      <div class="pstep">
+        <div class="pstep-num">3</div>
+        <h4>Launch & Optimise</h4>
+        <p>We launch campaigns and continuously A/B test ads, bids, and audiences — squeezing more leads out of every ₹1,000 spent.</p>
+      </div>
+      <div class="pstep">
+        <div class="pstep-num">4</div>
+        <h4>Scale & Report</h4>
+        <p>Once we identify winning ad sets, we scale the budget intelligently. You get weekly performance reports and monthly growth calls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" style="background: var(--gray-light);">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">Industries We Serve</div>
+      <h2 class="section-title">We've Generated Leads &amp; Sales<br>Across Every Major Industry</h2>
+      <p class="section-sub">Whether you're selling flats in Bangalore or SaaS to CFOs in Mumbai, we know how to make your ads convert.</p>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card"><div class="ind-icon">🏠</div><h4>Real Estate</h4><p>Qualified property buyers</p></div>
+      <div class="industry-card"><div class="ind-icon">🎓</div><h4>Education & EdTech</h4><p>Student lead generation</p></div>
+      <div class="industry-card"><div class="ind-icon">🛍️</div><h4>eCommerce & D2C</h4><p>ROAS-driven sales growth</p></div>
+      <div class="industry-card"><div class="ind-icon">🏥</div><h4>Healthcare & Clinics</h4><p>Patient appointment leads</p></div>
+      <div class="industry-card"><div class="ind-icon">💻</div><h4>B2B & SaaS</h4><p>Demo & trial signups</p></div>
+      <div class="industry-card"><div class="ind-icon">💰</div><h4>Finance & BFSI</h4><p>Loan & insurance leads</p></div>
+      <div class="industry-card"><div class="ind-icon">✈️</div><h4>Travel & Hospitality</h4><p>Booking-focused campaigns</p></div>
+      <div class="industry-card"><div class="ind-icon">🏭</div><h4>Manufacturing & B2B</h4><p>Distributor & buyer leads</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Client Results</div>
+      <h2 class="section-title">Numbers That Matter to Our Clients</h2>
+      <p class="section-sub">Real results from real Indian businesses. Not impressions — actual leads, sales, and revenue.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-metric">62<span>%</span></div>
+        <div class="result-label">Reduction in Cost Per Lead</div>
+        <p class="result-desc">A real estate developer in Hyderabad was paying ₹1,800 per lead via an old agency. After restructuring their Google Ads campaigns, we brought it down to ₹680 per qualified lead.</p>
+        <span class="result-industry">Real Estate · Hyderabad</span>
+      </div>
+      <div class="result-card">
+        <div class="result-metric">7.2<span>x</span></div>
+        <div class="result-label">Return on Ad Spend</div>
+        <p class="result-desc">A D2C skincare brand from Pune scaled from ₹50K/month to ₹3L/month in Meta Ad spend while maintaining a consistent 7.2x ROAS across all product lines.</p>
+        <span class="result-industry">eCommerce · Pune</span>
+      </div>
+      <div class="result-card">
+        <div class="result-metric">310<span>+</span></div>
+        <div class="result-label">Qualified Leads in 30 Days</div>
+        <p class="result-desc">A B2B SaaS company from Bangalore generated 310 qualified demo requests in 30 days using LinkedIn Ads, with a cost per lead of just ₹1,100.</p>
+        <span class="result-industry">B2B SaaS · Bangalore</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">Client Testimonials</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Rajesh SDM Labs completely transformed our Google Ads performance. Our cost per lead dropped by more than half and the lead quality improved dramatically. Highly recommend!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #4285F4;">AM</div>
+          <div><div class="testi-name">Arvind Mehta</div><div class="testi-co">Director, Greenview Realty, Hyderabad</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"We were sceptical about LinkedIn Ads for our SaaS product, but the team proved us wrong. We got 200+ demo bookings from CFOs and VPs in the first month. Incredible ROI."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #0A66C2;">PS</div>
+          <div><div class="testi-name">Priya Sharma</div><div class="testi-co">Co-Founder, FinTrack SaaS, Bangalore</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Our Meta Ads ROAS jumped from 2.1x to 7x in just 6 weeks. Rajesh's team knows exactly how to build creatives and funnels that work for Indian audiences. Game changer!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #FF6B2C;">NK</div>
+          <div><div class="testi-name">Neha Kapoor</div><div class="testi-co">Founder, GlowUp Skincare, Mumbai</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT SECTION -->
+<section class="audit-section" id="audit">
+  <div class="audit-inner">
+    <div>
+      <h2>Get Your Free Ads Audit — Worth ₹15,000</h2>
+      <p>In 30 minutes, we'll show you exactly where your ad budget is leaking, which audiences you're missing, and how to 2x your results without spending more.</p>
+      <ul class="audit-checklist">
+        <li>Full account structure review</li>
+        <li>Wasted spend analysis</li>
+        <li>Competitor ad intelligence</li>
+        <li>Custom growth roadmap</li>
+        <li>100% free. No commitment required</li>
+      </ul>
+    </div>
+    <div class="audit-form-card">
+      <div class="form-title">Book Your Free Audit</div>
+      <p class="form-sub" style="margin-bottom: 20px;">We'll call you within 24 hours.</p>
+      <div id="audit-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="af-name" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" id="af-phone" placeholder="+91 87902 82479" />
+        </div>
+        <div class="form-group">
+          <label>Website URL</label>
+          <input type="url" id="af-url" placeholder="https://yourbusiness.in" />
+        </div>
+        <div class="form-group">
+          <label>Platform You're Running (or want to run)</label>
+          <select id="af-platform">
+            <option value="">Select platform</option>
+            <option>Google Ads</option>
+            <option>Meta Ads (Facebook/Instagram)</option>
+            <option>LinkedIn Ads</option>
+            <option>All Three</option>
+            <option>Haven't started yet</option>
+          </select>
+        </div>
+        <button class="form-submit" onclick="submitAuditForm()">Book Free Audit Now →</button>
+        <p class="form-note">🔒 Your data is safe. We hate spam too.</p>
+      </div>
+      <div class="success-msg" id="audit-success">
+        <div class="check">✅</div>
+        <h3>Booking Confirmed!</h3>
+        <p>Expect a WhatsApp message from us within 24 hours to schedule your audit call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Questions We Get Asked Often</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the minimum ad budget you recommend in India?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">We typically recommend a minimum of ₹25,000–₹50,000/month for Google or Meta Ads to gather statistically significant data and optimise effectively. For LinkedIn Ads, due to higher CPCs in India, we suggest starting at ₹60,000–₹80,000/month. That said, we'll work with your budget and recommend the right platform mix.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long before I start seeing results?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">Most clients start seeing leads within the first 7–14 days of campaign launch. However, the campaigns take 4–6 weeks to fully optimise as we gather conversion data and refine targeting. We set realistic expectations upfront — no overnight miracles, but consistent, scalable growth.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you work with businesses outside metro cities?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">Absolutely. We have clients across Tier 2 and Tier 3 cities including Coimbatore, Surat, Indore, Vizag, and more. We understand regional nuances, local competition, and how to target audiences in smaller cities effectively — often with lower CPCs and less competition than metros.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does your management fee cover?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">Our monthly retainer covers campaign strategy, ad copywriting, creative briefing, audience research, bid management, A/B testing, weekly performance reports, a monthly strategy call, and ongoing optimisation. Your ad spend goes directly to the platform (Google/Meta/LinkedIn) — we charge separately for management.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can you help if we've had bad experiences with ads before?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">Yes — this is actually one of our most common situations. Many clients come to us after burning money with other agencies or managing ads themselves. Our free audit is specifically designed to identify what went wrong and how to fix it. We've turned around dozens of underperforming accounts.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you offer any guarantees?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-a">While no agency can guarantee specific leads or sales numbers (Google and Meta don't let anyone promise that), we do guarantee full transparency, measurable progress month-over-month, and a proactive approach to hitting your goals. If something isn't working, we tell you first — not last.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-mark">RS</div>
+          <span class="logo-text">Rajesh <span>SDM Labs</span></span>
+        </div>
+        <p class="footer-desc">India's performance-first digital advertising agency. We help businesses across India generate more leads, more sales, and more growth through Google, Meta &amp; LinkedIn Ads.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Google Ads Management</a></li>
+          <li><a href="#services">Meta Ads Management</a></li>
+          <li><a href="#services">LinkedIn Ads Management</a></li>
+          <li><a href="#audit">Free Ads Audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#results">Case Studies</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact footer-col">
+        <h4>Contact Us</h4>
+        <p>📍 Hyderabad, Telangana, India</p>
+        <p><svg width="16" height="16" viewBox="0 0 28 28" fill="none" style="vertical-align:-3px;margin-right:6px" xmlns="http://www.w3.org/2000/svg"><path d="M14 1.5C7.1 1.5 1.5 7.1 1.5 14c0 2.2.6 4.3 1.6 6.1L1.5 26.5l6.6-1.6A12.4 12.4 0 0014 26.5c6.9 0 12.5-5.6 12.5-12.5S20.9 1.5 14 1.5z" fill="#25D366"/><path d="M10.2 8.6c-.3-.7-.6-.7-.9-.7H8.5c-.3 0-.7.1-1.1.5s-1.4 1.4-1.4 3.4 1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7 6.2 3.5 1.4 4.2 1.1 4.9 1s2.3-.9 2.6-1.8c.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5s-2.4-1.2-2.8-1.3c-.4-.1-.6-.2-.9.2s-1 1.3-1.3 1.6c-.2.3-.5.3-.9.1s-1.8-.7-3.4-2.1a12.7 12.7 0 01-2.4-2.9c-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3 0-.6-.1-.8l-1.1-2.9z" fill="white"/></svg><a href="https://wa.me/918790282479?text=Hi%20Rajesh%2C%20I%20want%20a%20free%20Ads%20Audit" target="_blank">+91 87902 82479</a></p>
+        <p>✉️ <a href="mailto:hello@sdmlabs.in">hello@sdmlabs.in</a></p>
+        <p>🌐 <a href="https://rajesh.sdmlabs.in">rajesh.sdmlabs.in</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Rajesh SDM Labs. All rights reserved.</p>
+      <div class="footer-badges">
+        <span class="fbadge">Google Partner</span>
+        <span class="fbadge">Meta Business Partner</span>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <span class="footer-dot">·</span>
+      <a href="#">Terms</a>
+      <span class="footer-dot">·</span>
+      <span>*Results vary by market and budget.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="wa-fab" href="https://wa.me/918790282479?text=Hi%20Rajesh%2C%20I%20want%20a%20free%20Ads%20Audit" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14 1.5C7.1 1.5 1.5 7.1 1.5 14c0 2.2.6 4.3 1.6 6.1L1.5 26.5l6.6-1.6A12.4 12.4 0 0014 26.5c6.9 0 12.5-5.6 12.5-12.5S20.9 1.5 14 1.5z" fill="white"/>
+    <path d="M10.2 8.6c-.3-.7-.6-.7-.9-.7H8.5c-.3 0-.7.1-1.1.5s-1.4 1.4-1.4 3.4 1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7 6.2 3.5 1.4 4.2 1.1 4.9 1s2.3-.9 2.6-1.8c.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5s-2.4-1.2-2.8-1.3c-.4-.1-.6-.2-.9.2s-1 1.3-1.3 1.6c-.2.3-.5.3-.9.1s-1.8-.7-3.4-2.1a12.7 12.7 0 01-2.4-2.9c-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3 0-.6-.1-.8l-1.1-2.9z" fill="#25D366"/>
+  </svg>
+</a>
+
+<script>
+function submitHeroForm() {
+  const name = document.getElementById('hf-name').value;
+  const phone = document.getElementById('hf-phone').value;
+  if (!name || !phone) { alert('Please fill in your name and phone number.'); return; }
+  document.getElementById('hero-form').style.display = 'none';
+  document.getElementById('hero-success').style.display = 'block';
+}
+
+function submitAuditForm() {
+  const name = document.getElementById('af-name').value;
+  const phone = document.getElementById('af-phone').value;
+  if (!name || !phone) { alert('Please fill in your name and phone number.'); return; }
+  document.getElementById('audit-form').style.display = 'none';
+  document.getElementById('audit-success').style.display = 'block';
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
