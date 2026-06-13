@@ -440,10 +440,31 @@
 
     /* ── FAQ ── */
     .faq { background: var(--white); }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; }
-    .faq-item { border: 1px solid var(--rule); border-radius: 12px; padding: 1.5rem; }
-    .faq-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.65rem; }
-    .faq-a { font-size: 0.82rem; color: var(--mid); line-height: 1.7; }
+    .faq-accordion { max-width: 820px; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-card { border: 1.5px solid var(--rule); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .faq-card.open { border-color: #FFD600; }
+    .faq-toggle {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.5rem; gap: 1rem; text-align: left;
+    }
+    .faq-toggle span:first-child { font-weight: 700; font-size: 0.95rem; color: var(--ink); line-height: 1.4; }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: #FFD600; color: #0D1117;
+      font-size: 1.2rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.25s;
+    }
+    .faq-card.open .faq-icon { transform: rotate(45deg); }
+    .faq-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+      font-size: 0.875rem; color: var(--mid); line-height: 1.75;
+      padding: 0 1.5rem;
+    }
+    .faq-body.open { max-height: 300px; padding: 0 1.5rem 1.25rem; }
+    .faq-body strong { color: var(--ink); }
 
     /* ── LEAD FORM ── */
     .lead { background: var(--ink); color: var(--white); text-align: center; }
@@ -970,33 +991,61 @@
 <section class="faq" id="faq">
   <div class="section-header">
     <div class="section-label">FAQ</div>
-    <h2 class="section-title">Common Questions</h2>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub">Everything you need to know before getting started with us.</p>
   </div>
-  <div class="faq-grid">
-    <div class="faq-item">
-      <div class="faq-q">What is the minimum ad budget you recommend?</div>
-      <div class="faq-a">For Google Ads we recommend a minimum monthly ad spend of ₹30,000 to generate meaningful data. For Meta Ads, ₹25,000/month. LinkedIn Ads require at least ₹50,000/month due to higher CPCs in India.</div>
+  <div class="faq-accordion">
+
+    <div class="faq-card">
+      <button class="faq-toggle" onclick="toggleFaq(this)">
+        <span>How soon will I start getting leads after launching ads?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        Most clients receive their first qualified leads within <strong>7–14 days</strong> of campaign launch. Google Search Ads deliver the fastest results since they target people actively searching for your service right now. Meta and LinkedIn Ads typically take 2–3 weeks to optimise as the algorithm learns your best audience. Full campaign maturity is reached around day 30–60.
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Do you charge a % of ad spend or a flat fee?</div>
-      <div class="faq-a">We charge a flat monthly management fee only. We have zero incentive to inflate your ad budget — our goal is maximum efficiency from every rupee you spend.</div>
+
+    <div class="faq-card">
+      <button class="faq-toggle" onclick="toggleFaq(this)">
+        <span>What is the minimum ad budget I need to get started?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        We recommend a minimum monthly ad spend of <strong>₹30,000 for Google Ads</strong>, <strong>₹25,000 for Meta Ads</strong>, and <strong>₹50,000 for LinkedIn Ads</strong>. Below these amounts there isn't enough data for the algorithms to optimise effectively. Our management fee is separate from your ad spend — you pay the platforms directly, so every rupee goes to your ads.
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">How quickly will I see results?</div>
-      <div class="faq-a">Most clients see their first qualified leads within 7–14 days of launch. Campaigns reach full optimisation at 30–60 days once the algorithms have gathered sufficient data.</div>
+
+    <div class="faq-card">
+      <button class="faq-toggle" onclick="toggleFaq(this)">
+        <span>Do I own my ad accounts, or does SDM Labs own them?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        <strong>You always own 100% of your ad accounts.</strong> Your Google Ads, Meta Business Manager, and LinkedIn Campaign Manager accounts stay in your name. We only request manager-level access to run campaigns on your behalf. If you ever decide to leave, you keep everything — your accounts, your data, your history. No lock-ins, ever.
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">What industries do you work with?</div>
-      <div class="faq-a">We work with Real Estate, EdTech, Healthcare, B2B SaaS, Legal, Finance, Coaching, and D2C ecommerce. If you're unsure whether we're a fit, book a free audit and we'll tell you honestly.</div>
+
+    <div class="faq-card">
+      <button class="faq-toggle" onclick="toggleFaq(this)">
+        <span>How do you track leads and prove ROI?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        We set up <strong>Google Tag Manager</strong> and conversion tracking on day one — tracking phone calls, form submissions, WhatsApp clicks, and purchases. You get a live dashboard showing cost per lead, lead quality, and ROAS in real time. Every month you receive a detailed report with actual revenue metrics — not just impressions and clicks.
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Will I have access to my ad accounts?</div>
-      <div class="faq-a">Always. Your accounts remain 100% in your name. We request manager access — you can revoke it at any time. Full transparency is non-negotiable for us.</div>
+
+    <div class="faq-card">
+      <button class="faq-toggle" onclick="toggleFaq(this)">
+        <span>What if my campaigns don't perform? Is there a guarantee?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-body">
+        Yes — we offer a <strong>performance guarantee</strong>. Before we start, we agree on clear KPIs: target cost per lead, lead volume, or ROAS. If we don't hit those targets in the first month, <strong>month two is on us — free of charge.</strong> We've built our entire business on results, not retainers, so we only take on clients we're confident we can grow.
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">What makes you different from other agencies?</div>
-      <div class="faq-a">We focus entirely on revenue metrics — leads, sales, cost per acquisition. No vanity metrics. We also offer a performance guarantee: if we miss agreed KPIs in month one, month two is free.</div>
-    </div>
+
   </div>
 </section>
 
@@ -1005,31 +1054,31 @@
   <div class="section-label">Free Audit</div>
   <h2 class="section-title">Get Your Free Google, Meta & LinkedIn Ads Audit</h2>
   <p style="color:rgba(255,255,255,0.55); max-width:500px; margin:0 auto; font-size:1rem;">We'll review your ad accounts, identify what's costing you money, and show you exactly how to fix it — at no charge.</p>
-  <div class="lead-form">
+  <div class="lead-form" id="auditForm">
     <div class="form-row">
       <div class="form-field">
         <label>Your Name *</label>
-        <input type="text" placeholder="Rajesh Kumar" />
+        <input id="f_name" type="text" placeholder="Rajesh Kumar" required />
       </div>
       <div class="form-field">
         <label>Business Name *</label>
-        <input type="text" placeholder="Your Company Pvt Ltd" />
+        <input id="f_business" type="text" placeholder="Your Company Pvt Ltd" required />
       </div>
     </div>
     <div class="form-row">
       <div class="form-field">
         <label>Phone / WhatsApp *</label>
-        <input type="tel" placeholder="+91 87902 82479" />
+        <input id="f_phone" type="tel" placeholder="+91 87902 82479" required />
       </div>
       <div class="form-field">
         <label>Email Address *</label>
-        <input type="email" placeholder="you@company.com" />
+        <input id="f_email" type="email" placeholder="you@company.com" required />
       </div>
     </div>
     <div class="form-row">
       <div class="form-field">
         <label>Industry</label>
-        <select>
+        <select id="f_industry">
           <option value="">Select your industry</option>
           <option>Real Estate</option>
           <option>EdTech / Coaching</option>
@@ -1043,7 +1092,7 @@
       </div>
       <div class="form-field">
         <label>Current Monthly Ad Budget</label>
-        <select>
+        <select id="f_budget">
           <option value="">Select budget range</option>
           <option>No ads yet – starting fresh</option>
           <option>Under ₹30,000/month</option>
@@ -1055,9 +1104,9 @@
     </div>
     <div class="form-field">
       <label>What's your main challenge right now? (optional)</label>
-      <textarea rows="3" placeholder="e.g. High cost per lead, low quality leads, no visibility on ROI..."></textarea>
+      <textarea id="f_challenge" rows="3" placeholder="e.g. High cost per lead, low quality leads, no visibility on ROI..."></textarea>
     </div>
-    <button class="form-submit" onclick="handleSubmit(event)">🚀 Request My Free Ads Audit →</button>
+    <button class="form-submit" id="submitBtn" onclick="handleSubmit(event)">🚀 Request My Free Ads Audit →</button>
     <p class="form-note">No spam. No pushy sales calls. One of our specialists will reach out within 24 hours on WhatsApp.</p>
   </div>
 </section>
@@ -1107,6 +1156,22 @@
 <a class="wa-float" href="https://wa.me/918790282479?text=Hi%20Rajesh%2C%20I%20want%20a%20free%20ads%20audit" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <script>
+  function toggleFaq(btn) {
+    const card = btn.closest('.faq-card');
+    const body = card.querySelector('.faq-body');
+    const isOpen = card.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-card').forEach(c => {
+      c.classList.remove('open');
+      c.querySelector('.faq-body').classList.remove('open');
+    });
+    // Open clicked if it was closed
+    if (!isOpen) {
+      card.classList.add('open');
+      body.classList.add('open');
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target;
