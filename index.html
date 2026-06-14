@@ -93,12 +93,12 @@
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
+      min-height: auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 4rem;
-      padding: 100px 5vw 80px;
+      padding: 90px 5vw 40px;
       position: relative;
       overflow: hidden;
     }
@@ -133,7 +133,7 @@
       font-size: 1.1rem; color: var(--mid);
       max-width: 500px; margin-bottom: 2.5rem; line-height: 1.7;
     }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
     .btn-primary {
       background: var(--gradient); color: var(--white);
       padding: 0.9rem 2rem; border-radius: 8px; border: none;
@@ -153,7 +153,7 @@
     }
     .btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); }
 
-    .hero-trust { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .hero-trust { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 0; }
     .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--mid); }
     .trust-item svg { color: #22C55E; flex-shrink: 0; }
 
@@ -631,17 +631,13 @@
       </div>
       <div class="trust-item">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 0l1.8 5.4H14l-4.6 3.3 1.8 5.4L7 11l-4.6 3.1 1.8-5.4L0 5.4h5.2L7 0z"/></svg>
-        Meta Business Partner
-      </div>
-      <div class="trust-item">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 0l1.8 5.4H14l-4.6 3.3 1.8 5.4L7 11l-4.6 3.1 1.8-5.4L0 5.4h5.2L7 0z"/></svg>
-        ₹50Cr+ Ad Spend Managed
+        Meta Business
       </div>
     </div>
   </div>
   <div class="hero-right">
     <div class="stats-card">
-      <div class="stats-card-label">Client Performance Dashboard — Q1 2025</div>
+      <div class="stats-card-label">Client Performance Dashboard — Q1 2026</div>
       <div class="stats-grid">
         <div class="stat-box">
           <div class="stat-num">4.8×</div>
@@ -683,11 +679,11 @@
       <span class="marquee-sep">&nbsp;&nbsp;</span>
       <span class="marquee-item">✦ Websites</span>
       <span class="marquee-sep">&nbsp;&nbsp;</span>
-      <span class="marquee-item">✦ Conversion Tracking</span>
-      <span class="marquee-sep">&nbsp;&nbsp;</span>
       <span class="marquee-item">✦ Landing Pages</span>
       <span class="marquee-sep">&nbsp;&nbsp;</span>
       <span class="marquee-item">✦ Google Tag Manager</span>
+      <span class="marquee-sep">&nbsp;&nbsp;</span>
+      <span class="marquee-item">✦ Conversion Tracking</span>
       <span class="marquee-sep">&nbsp;&nbsp;</span>
     </div>
     <div class="marquee-content" aria-hidden="true">
@@ -697,11 +693,11 @@
       <span class="marquee-sep">&nbsp;&nbsp;</span>
       <span class="marquee-item">✦ Websites</span>
       <span class="marquee-sep">&nbsp;&nbsp;</span>
-      <span class="marquee-item">✦ Conversion Tracking</span>
-      <span class="marquee-sep">&nbsp;&nbsp;</span>
       <span class="marquee-item">✦ Landing Pages</span>
       <span class="marquee-sep">&nbsp;&nbsp;</span>
       <span class="marquee-item">✦ Google Tag Manager</span>
+      <span class="marquee-sep">&nbsp;&nbsp;</span>
+      <span class="marquee-item">✦ Conversion Tracking</span>
       <span class="marquee-sep">&nbsp;&nbsp;</span>
     </div>
   </div>
@@ -724,6 +720,7 @@
         <li>Performance Max (PMax)</li>
         <li>YouTube Pre-Roll Ads</li>
         <li>Remarketing & Display</li>
+        <li>Conversation Tracking</li>
         <li>Conversion Tracking Setup</li>
         <li>Landing Page Optimisation</li>
       </ul>
@@ -911,7 +908,6 @@
         <li>1 Ad Platform (Google or Meta)</li>
         <li>Up to 3 Ad Campaigns</li>
         <li>Monthly Performance Report</li>
-        <li>Conversion Tracking Setup</li>
         <li>Landing Page Recommendations</li>
         <li>Email & WhatsApp Support</li>
       </ul>
@@ -1141,7 +1137,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 RajeshSDMLabs. All rights reserved.</p>
+    <p>© 2026 RajeshSDMLabs. All rights reserved.</p>
     <div class="footer-bottom-links">
       <a href="#">Privacy Policy</a>
       <span class="sep">·</span>
@@ -1172,13 +1168,44 @@
     }
   }
 
-  function handleSubmit(e) {
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxazwMrFL9mKcFrBZQ9nrRYFNFvF8m96wUae2PKyLcxAEbzzsu1T2kSBYaalC91Ntl6Qw/exec";
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target;
-    btn.textContent = '✅ Request Received! We\'ll WhatsApp you within 24 hours.';
-    btn.style.background = '#22C55E';
-    btn.style.boxShadow = '0 4px 20px rgba(34,197,94,0.4)';
+
+    const name      = document.getElementById('f_name').value.trim();
+    const business  = document.getElementById('f_business').value.trim();
+    const phone     = document.getElementById('f_phone').value.trim();
+    const email     = document.getElementById('f_email').value.trim();
+    const industry  = document.getElementById('f_industry').value;
+    const budget    = document.getElementById('f_budget').value;
+    const challenge = document.getElementById('f_challenge').value.trim();
+
+    if (!name || !business || !phone || !email) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = '⏳ Submitting...';
     btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    const payload = { name, business, phone, email, industry, budget, challenge };
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.log('Submitted:', err);
+    }
+
+    // Redirect to Thank You page
+    window.location.href = 'thankyou.html';
   }
 
   // Animate bar fills on scroll
